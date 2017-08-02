@@ -6,7 +6,7 @@ const NoArtistFound = ({ searchTerm }) => {
   const searchQuery = searchTerm.replace(/ /gi, '+')
   return (
     <div className={style.noArtistFound}>
-      <h1>Sorry, I can’t find artists called <em>{searchTerm}</em> 🙁</h1>
+      <h1>Sorry, I can’t find any artists called <em>{searchTerm}</em> 🙁</h1>
       <span>
         Try <a href={`http://songkick.com/search?utf8=✓&type=initial&query=${searchQuery}`} target="_blank" rel="noopener noreferrer">searching on Songkick</a> for more results.
      </span>
