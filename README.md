@@ -1,8 +1,10 @@
-#SongClick
+# SongClick
 
 A Chrome Extension for right-click searching an artist's upcoming tour dates quickly and simply.
 
-Built with `react-chrome-extension-boilerplate`.
+Built during August 2017 Songkick Hackday ⛏
+
+Originally generated using `react-chrome-extension-boilerplate`.
 
 # Commands
 
