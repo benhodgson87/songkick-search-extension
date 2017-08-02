@@ -27,7 +27,7 @@ export default class Root extends Component {
 
   componentDidMount() {
     if (this.state.searchTerm) {
-      apiClient.get(this.state.searchTerm)
+      apiClient.artistSearch(this.state.searchTerm)
       .then((result) => {
         this.setState({
           searchStatus: 'SUCCESS',

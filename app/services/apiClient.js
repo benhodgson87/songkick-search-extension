@@ -2,40 +2,26 @@ import 'isomorphic-fetch'
 import * as config from '../constants/config'
 
 const apiClient = {
-  requestHeaders() {
-    return new Headers({
-      'content-type': 'application/json'
-    })
-  },
-
-  artistSearchPayload(artistName) {
-    return {
-      endpoint: `search/artists.json?query=${artistName}`,
-    }
-  },
-
-  artistCalendarPayload(artistId) {
-    return {
-      endpoint: `artists/${artistId}/calendar.json`,
-    }
-  },
-
-  postJson(payload) {
+  post(endpoint) {
     return fetch(config.API_ENDPOINT, {
       method: 'POST',
-      body: JSON.stringify(payload),
-      headers: this.requestHeaders()
+      body: JSON.stringify({
+        endpoint
+      }),
+      headers: new Headers({
+        'content-type': 'application/json'
+      })
     })
   },
 
-  get(search) {
+  artistSearch(searchQuery) {
     let artistData
     return new Promise((resolve, reject) => {
-      this.postJson(this.artistSearchPayload(search))
+      this.post(`search/artists.json?query=${searchQuery}`)
       .then(r => r.json())
       .then((data) => {
         artistData = data.resultsPage.results.artist[0]
-        return this.postJson(this.artistCalendarPayload(artistData.id))
+        return this.post(`artists/${artistData.id}/calendar.json`)
       })
       .then(r => r.json())
       .then((data) => {
