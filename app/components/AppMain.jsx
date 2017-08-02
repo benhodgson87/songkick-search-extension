@@ -28,44 +28,58 @@ export default class Root extends Component {
   }
 
   componentDidMount() {
-    fetch(config.API_ENDPOINT, {
-      method: 'POST',
-      body: JSON.stringify({
-        endpoint: `search/artists.json?query=${this.state.searchTerm}`
-      }),
-      headers: new Headers({ 'content-type': 'application/json' })
-    })
-    .then(r => r.json())
-    .then((data) => {
-      const artistData = data.resultsPage.results.artist[0]
-      this.setState({
-        artist: artistData,
-      })
-      return fetch(config.API_ENDPOINT, {
+    if (this.state.searchTerm) {
+      fetch(config.API_ENDPOINT, {
         method: 'POST',
         body: JSON.stringify({
-          endpoint: `artists/${artistData.id}/calendar.json`
+          endpoint: `search/artists.json?query=${this.state.searchTerm}`
         }),
         headers: new Headers({ 'content-type': 'application/json' })
       })
-    })
-    .then(r => r.json())
-    .then((data) => {
-      this.setState({
-        searchStatus: 'SUCCESS',
-        calendar: data.resultsPage.results,
+      .then(r => r.json())
+      .then((data) => {
+        const artistData = data.resultsPage.results.artist[0]
+        this.setState({
+          artist: artistData,
+        })
+        return fetch(config.API_ENDPOINT, {
+          method: 'POST',
+          body: JSON.stringify({
+            endpoint: `artists/${artistData.id}/calendar.json`
+          }),
+          headers: new Headers({ 'content-type': 'application/json' })
+        })
       })
-    })
-    .catch(() => {
-      this.setState({ searchStatus: 'ERROR' })
-    })
+      .then(r => r.json())
+      .then((data) => {
+        this.setState({
+          searchStatus: 'SUCCESS',
+          calendar: data.resultsPage.results,
+        })
+      })
+      .catch(() => {
+        this.setState({ searchStatus: 'ERROR' })
+      })
+    }
+  }
+
+  renderStartScreen() {
+    return (
+      <div>
+        <MainHeader artist="Concert Search" />
+        <div className={classnames(style.content, style.contentExtraPad)}>
+          To use this extension, please highlight an artist&rsquo;s name, right-click,
+          and select the <em>Search for Artist Concerts</em> option in the menu
+        </div>
+      </div>
+    )
   }
 
   renderSearching() {
     return (
       <div>
         <MainHeader artist={this.state.searchTerm} />
-        <div className={classnames(style.content, style.contentSearching)}>
+        <div className={classnames(style.content, style.contentExtraPad)}>
           Searching for {this.state.searchTerm} 🙏
         </div>
       </div>
@@ -76,7 +90,7 @@ export default class Root extends Component {
     return (
       <div>
         <MainHeader artist={this.state.searchTerm} />
-        <div className={classnames(style.content, style.contentError)}>
+        <div className={classnames(style.content, style.contentExtraPad)}>
           <NoArtistFound searchTerm={this.state.searchTerm} />
         </div>
       </div>
@@ -87,7 +101,7 @@ export default class Root extends Component {
     return (
       <div>
         <MainHeader artist={this.state.artist.displayName} url={this.state.artist.uri} />
-        <div className={classnames(style.content, style.contentSuccess)}>
+        <div className={classnames(style.content)}>
           <ArtistHeader artist={this.state.artist} />
           <SearchResults artist={this.state.artist} calendar={this.state.calendar} />
         </div>
@@ -96,6 +110,7 @@ export default class Root extends Component {
   }
 
   render() {
+    if (this.state.searchTerm === null) return this.renderStartScreen()
     if (this.state.searchStatus === 'SEARCHING') return this.renderSearching()
     if (this.state.searchStatus === 'ERROR') return this.renderError()
     return this.renderSuccess()

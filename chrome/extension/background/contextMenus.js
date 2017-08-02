@@ -31,7 +31,7 @@ function popWindow(type) {
 
 chrome.contextMenus.create({
   id: CONTEXT_MENU_ID,
-  title: 'Find %s Concert Dates',
+  title: 'Search for "%s" Concerts',
   contexts: ['all'],
   documentUrlPatterns: [
     '<all_urls>'
