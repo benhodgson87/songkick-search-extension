@@ -1,9 +1,7 @@
-import 'isomorphic-fetch'
 import React, { Component } from 'react'
 import classnames from 'classnames';
-import * as config from '../constants/config'
 import style from './AppMain.css'
-
+import apiClient from '../services/apiClient'
 import MainHeader from './MainHeader'
 import ArtistHeader from './ArtistHeader'
 import NoArtistFound from './NoArtistFound'
@@ -29,32 +27,12 @@ export default class Root extends Component {
 
   componentDidMount() {
     if (this.state.searchTerm) {
-      fetch(config.API_ENDPOINT, {
-        method: 'POST',
-        body: JSON.stringify({
-          endpoint: `search/artists.json?query=${this.state.searchTerm}`
-        }),
-        headers: new Headers({ 'content-type': 'application/json' })
-      })
-      .then(r => r.json())
-      .then((data) => {
-        const artistData = data.resultsPage.results.artist[0]
-        this.setState({
-          artist: artistData,
-        })
-        return fetch(config.API_ENDPOINT, {
-          method: 'POST',
-          body: JSON.stringify({
-            endpoint: `artists/${artistData.id}/calendar.json`
-          }),
-          headers: new Headers({ 'content-type': 'application/json' })
-        })
-      })
-      .then(r => r.json())
-      .then((data) => {
+      apiClient.get(this.state.searchTerm)
+      .then((result) => {
         this.setState({
           searchStatus: 'SUCCESS',
-          calendar: data.resultsPage.results,
+          artist: result.artistData,
+          calendar: result.artistCalendar,
         })
       })
       .catch(() => {
