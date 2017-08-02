@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "name": "SongClick",
+  "name": "SongClick (DEV)",
   "manifest_version": 2,
   "description": "SongClick lets you search for concerts on Songkick, just by highlighting them",
   "browser_action": {
