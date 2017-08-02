@@ -35,7 +35,7 @@ export default class Root extends Component {
       }),
       headers: new Headers({ 'content-type': 'application/json' })
     })
-    .then((r) => r.json())
+    .then(r => r.json())
     .then((data) => {
       const artistData = data.resultsPage.results.artist[0]
       this.setState({
@@ -49,7 +49,7 @@ export default class Root extends Component {
         headers: new Headers({ 'content-type': 'application/json' })
       })
     })
-    .then((r) => r.json())
+    .then(r => r.json())
     .then((data) => {
       this.setState({
         searchStatus: 'SUCCESS',
