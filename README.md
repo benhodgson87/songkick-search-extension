@@ -1,4 +1,4 @@
-# SongClick
+# Songkick Concert Search
 
 A Chrome Extension for right-click searching an artist's upcoming tour dates quickly and simply.
 
