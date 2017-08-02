@@ -1,0 +1,29 @@
+.emptyMessage {
+  margin: 20px 20px;
+  padding: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #ffedec;
+}
+
+.trackUpsell {
+  margin: 0 20px 20px;
+  padding: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #e5f5e6;
+}
+
+.trackUpsell span {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.trackButton {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #009815;
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+}

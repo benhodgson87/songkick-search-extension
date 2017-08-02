@@ -14,23 +14,27 @@ function popWindow(type) {
     type: 'popup',
     left: 100,
     top: 100,
-    width: 800,
-    height: 475,
+    width: 480,
+    height: 640,
   };
   if (type === 'open') {
-    options.url = 'window.html';
-    chrome.windows.create(options, (win) => {
-      windowId = win.id;
-    });
+    chrome.tabs.executeScript({
+      code: 'window.getSelection().toString();'
+    }, (selection) => {
+      options.url = `popup.html?searchTerm=${selection[0]}`;
+      chrome.windows.create(options, (win) => {
+        windowId = win.id;
+      });
+    })
   }
 }
 
 chrome.contextMenus.create({
   id: CONTEXT_MENU_ID,
-  title: 'React Chrome Extension Example',
+  title: 'Find %s Concert Dates',
   contexts: ['all'],
   documentUrlPatterns: [
-    'https://github.com/*'
+    '<all_urls>'
   ]
 });
 

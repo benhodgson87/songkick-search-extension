@@ -1,0 +1,35 @@
+.extHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  padding: 10px 20px;
+  background-color: #f80046;
+  z-index: 9999;
+}
+
+.extHeader h2 {
+  flex: 1;
+  margin: 0;
+  color: #fff;
+  text-align: right;
+  font-size: 18px;
+  line-height: 30px;
+}
+
+.extHeader h2 a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.logo {
+  width: 30px;
+  height: 30px;
+}
+
+.logo img {
+  width: 100%;
+  height: auto;
+}

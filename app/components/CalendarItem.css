@@ -1,0 +1,56 @@
+.eventContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+  color: #222;
+  text-decoration: none;
+
+  transition: background-color 0.5s ease;
+}
+
+.eventContainer:last-of-type {
+  border-bottom: 0;
+}
+
+.eventContainer:hover {
+  background-color: #fff;
+  transition:
+}
+
+.eventImage {
+  width: 80px;
+  height: 80px;
+  margin-right: 20px;
+}
+
+.eventImage img {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  background-color: #eee;
+  vertical-align: middle;
+}
+
+.eventInfo {
+  flex: 1;
+}
+
+.eventDate {
+  margin: 0;
+  font-size: 18px;
+  color: #666;
+  line-height: 18px;
+}
+
+.eventName {
+  margin: 0;
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+.eventLocation {
+  font-size: 16px;
+}

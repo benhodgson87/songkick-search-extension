@@ -1,0 +1,10 @@
+.content {
+  display: block;
+  padding-top: 60px;
+}
+
+.contentSearching,
+.contentError {
+  padding: 80px 20px 20px;
+  font-weight: bold;
+}
