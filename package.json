@@ -1,7 +1,7 @@
 {
-  "name": "SongClick",
+  "name": "Songkick Concert Search",
   "version": "0.9.0",
-  "description": "SongClick lets you search for artist concerts just by highlighting and clicking",
+  "description": "Songkick Concert Search lets you find concerts just by highlighting and clicking",
   "scripts": {
     "dev": "node scripts/dev",
     "build": "node scripts/build",

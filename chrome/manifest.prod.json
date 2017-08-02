@@ -1,10 +1,10 @@
 {
-  "version": "1.0.2",
-  "name": "SongClick",
+  "version": "1.1.0",
+  "name": "Songkick Concert Search",
   "manifest_version": 2,
-  "description": "SongClick lets you search for concerts on Songkick, just by highlighting them",
+  "description": "Simple concert search in your browser, powered by Songkick",
   "browser_action": {
-    "default_title": "SongClick",
+    "default_title": "Songkick Concert Search",
     "default_popup": "popup.html"
   },
   "icons": {

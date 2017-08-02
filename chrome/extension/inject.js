@@ -16,7 +16,7 @@ class InjectApp extends Component {
     return (
       <div>
         <button onClick={this.buttonOnClick}>
-          Open SongClick
+          Open Songkick Concert Search
         </button>
         <Dock
           position="right"
