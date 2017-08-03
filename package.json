@@ -1,6 +1,6 @@
 {
   "name": "songkick-concert-search-chrome",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "description": "Songkick Concert Search lets you find concerts just by highlighting and clicking",
   "scripts": {
     "dev": "node scripts/dev",
