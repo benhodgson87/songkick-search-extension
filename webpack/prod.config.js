@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const postCSSConfig = require('./postcss.config');
 
 const customPath = path.join(__dirname, './customPublicPath');
@@ -22,11 +23,12 @@ module.exports = {
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.IgnorePlugin(/[^/]+\/[\S]+.dev$/),
     new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin({
+    new UglifyJSPlugin({
       comments: false,
       compressor: {
-        warnings: false
-      }
+        screw_ie8: true,
+        warnings: false,
+      },
     }),
     new webpack.DefinePlugin({
       'process.env': {

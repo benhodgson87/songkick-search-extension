@@ -27,6 +27,7 @@
 .logo {
   width: 30px;
   height: 30px;
+  outline: none; /* don't like doing this but chrome targets it by default and it glows blue */
 }
 
 .logo img {

@@ -5,15 +5,15 @@ import style from './MainHeader.css'
 export default class Header extends Component {
 
   static propTypes = {
-    artist: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
     url: PropTypes.string,
   }
 
   renderArtistName() {
-    if (!this.props.url) return <h2>{this.props.artist}</h2>
+    if (!this.props.url) return <h2>{this.props.title}</h2>
     return (
       <h2>
-        <a href={this.props.url} target="_blank" rel="noopener noreferrer">{this.props.artist}</a>
+        <a href={this.props.url} target="_blank" rel="noopener noreferrer">{this.props.title}</a>
       </h2>
     )
   }

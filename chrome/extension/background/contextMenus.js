@@ -21,7 +21,7 @@ function popWindow(type) {
     chrome.tabs.executeScript({
       code: 'window.getSelection().toString();'
     }, (selection) => {
-      options.url = `popup.html?searchTerm=${selection[0]}`;
+      options.url = `popup.html?searchTerm=${encodeURIComponent(selection[0])}&popup=true`;
       chrome.windows.create(options, (win) => {
         windowId = win.id;
       });

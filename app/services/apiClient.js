@@ -2,15 +2,9 @@ import 'isomorphic-fetch'
 import * as config from '../constants/config'
 
 const apiClient = {
-  createEndpoint(path) {
-    const keySeparator = (path.includes('?') ? '&' : '?')
-    const apiKeyString = `${keySeparator}apikey=${config.API_KEY}`
-    return `${config.API_ENDPOINT}/${path}${apiKeyString}`
-  },
-
   get(endpoint) {
-    return fetch(this.createEndpoint(endpoint), {
-      method: 'get',
+    return fetch(`${config.API_ENDPOINT}/?get=${encodeURIComponent(endpoint)}`, {
+      method: 'get'
     })
   },
 
