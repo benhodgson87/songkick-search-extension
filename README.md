@@ -2,7 +2,7 @@
 
 A Chrome Extension for searching an artist's upcoming tour dates just by highlighting their name.
 
-Originally built over the course of about 6 hours at the August 2017 Songkick Hackday ⛏
+Built over the course of about 6 hours at the August 2017 Songkick Hackday ⛏
 
 <img src="https://pbs.twimg.com/media/DGTtZzbUMAAgJSa.jpg" width="640" height="auto" alt="concert search extension screenshot showing SZA tour dates" />
 
