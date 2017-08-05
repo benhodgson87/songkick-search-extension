@@ -8,7 +8,7 @@ Built during August 2017 Songkick Hackday ⛏
 
 Built with React. Originally generated using [react-chrome-extension-boilerplate](https://github.com/jhen0409/react-chrome-extension-boilerplate).
 
-API requests are made via a [proxy Express server](https://github.com/benhodgson87/sk-api-proxy) hosted on Heroku, which stops the API key being passed from the client.
+API requests are made via a [proxy Express server](https://github.com/benhodgson87/sk-api-proxy) hosted on Heroku, which gets around the lack of Songkick API CORS support, and keeps the API key from being passed openly from the client.
 
 # Commands
 
