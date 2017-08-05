@@ -1,10 +1,14 @@
 # Songkick Concert Search
 
-A Chrome Extension for right-click searching an artist's upcoming tour dates quickly and simply.
+A Chrome Extension for searching an artist's upcoming tour dates just by highlighting their name.
 
 Built during August 2017 Songkick Hackday ⛏
 
-Originally generated using `react-chrome-extension-boilerplate`.
+<img src="https://pbs.twimg.com/media/DGTtZzbUMAAgJSa.jpg" width="640" height="auto" alt="concert search extension screenshot showing SZA tour dates" />
+
+Built with React. Originally generated using [react-chrome-extension-boilerplate](https://github.com/jhen0409/react-chrome-extension-boilerplate).
+
+API requests are made via a [proxy Express server](https://github.com/benhodgson87/sk-api-proxy) hosted on Heroku, which stops the API key being passed from the client.
 
 # Commands
 
@@ -17,5 +21,6 @@ Originally generated using `react-chrome-extension-boilerplate`.
 
 * **Actually write some unit tests!** (It *was* a hackday project)
 * Store state in Redux rather than component state
-* Use SK oAuth so allow a user to login and track directly from the extension
-* Add additional artist stuff; Spotify player, etc.
+* Show a Spotify web player for the artist
+* Get additional artist data, social links, etc. from MusicBrainz
+* Use Songkick oAuth to let a user track artists and mark event attendance from within the extension
