@@ -23,4 +23,5 @@ API requests are made via a [proxy Express server](https://github.com/benhodgson
 * Store state in Redux rather than component state
 * Show a Spotify web player for the artist
 * Get additional artist data, social links, etc. from MusicBrainz
+* Use MusicBrainz `ended` data point to hide track links if artist is no longer alive
 * Use Songkick oAuth to let a user track artists and mark event attendance from within the extension
